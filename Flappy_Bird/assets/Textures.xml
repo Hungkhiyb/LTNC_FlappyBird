@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+    <texture id="bird" source="assets/Bird/Bird.png"/>
+
+    <texture id="bg1" source="assets/Background/Background.png"/>
+
+</Textures>

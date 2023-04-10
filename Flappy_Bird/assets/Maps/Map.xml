@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Maps>
+    <map id="level0" source="assets/Maps/Map0.tmx"/>
+    <map id="level1" source="assets/Maps/Map1.tmx"/>
+    <map id="level2" source="assets/Maps/Map2.tmx"/>
+    <map id="level3" source="assets/Maps/Map3.tmx"/>
+
+</Maps>

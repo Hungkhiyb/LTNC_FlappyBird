@@ -1,0 +1,162 @@
+# depslib dependency file v1.0
+1680932654 source:c:\users\msi\desktop\c++\flappy_bird\main.cpp
+	"Engine.h"
+	<ctime>
+
+1681056475 c:\users\msi\desktop\c++\flappy_bird\src\core\engine.h
+	<iostream>
+	"SDL.h"
+	"SDL_image.h"
+	"Camera.h"
+	"TextureManager.h"
+	"Vector2D.h"
+	"Tranform.h"
+	"MapParser.h"
+	"GameMap.h"
+	"Bird.h"
+
+1681137478 source:c:\users\msi\desktop\c++\flappy_bird\src\core\engine.cpp
+	"Engine.h"
+
+1680855166 c:\users\msi\desktop\c++\flappy_bird\src\inputs\input.h
+	<SDL.h>
+	"Engine.h"
+
+1680855166 source:c:\users\msi\desktop\c++\flappy_bird\src\inputs\input.cpp
+	"Input.h"
+
+1376457362 source:c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinystr.cpp
+	"tinystr.h"
+
+1376457362 c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1376457362 source:c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1376457362 c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1376457362 source:c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1376457362 source:c:\users\msi\desktop\c++\flappy_bird\src\vendor\tinyxml\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1680855890 c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.h
+	"Point.h"
+	"Vector2D.h"
+	"Engine.h"
+	"SDL.h"
+
+1680885156 c:\users\msi\desktop\c++\flappy_bird\src\physics\point.h
+
+1680855890 c:\users\msi\desktop\c++\flappy_bird\src\physics\vector2d.h
+	<iostream>
+
+1680968856 c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.h
+	<string>
+	<map>
+	<SDL.h>
+	"tinyxml.h"
+	"Engine.h"
+	"Camera.h"
+
+1681052161 source:c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.cpp
+	"Camera.h"
+
+1680969103 source:c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.cpp
+	"TextureManager.h"
+
+1681035490 c:\users\msi\desktop\c++\flappy_bird\src\map\mapparser.h
+	<map>
+	<string>
+	"GameMap.h"
+	"TileLayer.h"
+	"tinyxml.h"
+
+1681037058 c:\users\msi\desktop\c++\flappy_bird\src\map\gamemap.h
+	<vector>
+	"Layer.h"
+
+1681037071 c:\users\msi\desktop\c++\flappy_bird\src\map\layer.h
+
+1681037057 c:\users\msi\desktop\c++\flappy_bird\src\map\tilelayer.h
+	<string>
+	<vector>
+	"Layer.h"
+	"TextureManager.h"
+
+1681048377 source:c:\users\msi\desktop\c++\flappy_bird\src\map\mapparser.cpp
+	"MapParser.h"
+
+1681037058 source:c:\users\msi\desktop\c++\flappy_bird\src\map\tilelayer.cpp
+	"TileLayer.h"
+
+1681136897 source:c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.cpp
+	"CollisionHandler.h"
+
+1681056211 c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.h
+	<vector>
+	"SDL.h"
+	"TileLayer.h"
+	"GameMap.h"
+	"Engine.h"
+
+1681137657 c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.h
+	<math.h>
+	"Character.h"
+	"Animation.h"
+	"Collider.h"
+	"Vector2D.h"
+	"Camera.h"
+	"CollisionHandler.h"
+
+1680968856 c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.h
+	<string>
+	<SDL.h>
+	"TextureManager.h"
+
+1680963391 c:\users\msi\desktop\c++\flappy_bird\src\physics\rigidbody.h
+	"Vector2D.h"
+
+1680885156 c:\users\msi\desktop\c++\flappy_bird\src\physics\collider.h
+	"SDL.h"
+
+1680886671 c:\users\msi\desktop\c++\flappy_bird\src\characters\character.h
+	"GameObject.h"
+	<string>
+
+1680884898 c:\users\msi\desktop\c++\flappy_bird\src\object\gameobject.h
+	"IObject.h"
+	"Tranform.h"
+	"SDL.h"
+	"Point.h"
+
+1680884898 c:\users\msi\desktop\c++\flappy_bird\src\object\iobject.h
+
+1680967557 c:\users\msi\desktop\c++\flappy_bird\src\physics\tranform.h
+	<string>
+	"Vector2D.h"
+
+1680968856 source:c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.cpp
+	"Animation.h"
+
+1681051471 source:c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.cpp
+	"Bird.h"
+

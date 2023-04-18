@@ -23,6 +23,9 @@
 					<Add directory="src/Collision" />
 					<Add directory="src/Animation" />
 					<Add directory="src/Characters" />
+					<Add directory="src/State" />
+					<Add directory="src/Widgets" />
+					<Add directory="src/Input" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -43,6 +46,8 @@
 					<Add directory="src/Collision" />
 					<Add directory="src/Animation" />
 					<Add directory="src/Characters" />
+					<Add directory="src/State" />
+					<Add directory="src/Widgets" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -74,6 +79,8 @@
 		<Unit filename="src/Core/Engine.h" />
 		<Unit filename="src/Graphics/TextureManager.cpp" />
 		<Unit filename="src/Graphics/TextureManager.h" />
+		<Unit filename="src/Input/Input.cpp" />
+		<Unit filename="src/Input/Input.h" />
 		<Unit filename="src/Map/GameMap.h" />
 		<Unit filename="src/Map/Layer.h" />
 		<Unit filename="src/Map/MapParser.cpp" />
@@ -86,12 +93,19 @@
 		<Unit filename="src/Physics/Point.h" />
 		<Unit filename="src/Physics/Tranform.h" />
 		<Unit filename="src/Physics/Vector2D.h" />
+		<Unit filename="src/State/GameState.h" />
+		<Unit filename="src/State/Menu.cpp" />
+		<Unit filename="src/State/Menu.h" />
+		<Unit filename="src/State/Play.cpp" />
+		<Unit filename="src/State/Play.h" />
 		<Unit filename="src/Vendor/TinyXML/tinystr.cpp" />
 		<Unit filename="src/Vendor/TinyXML/tinystr.h" />
 		<Unit filename="src/Vendor/TinyXML/tinyxml.cpp" />
 		<Unit filename="src/Vendor/TinyXML/tinyxml.h" />
 		<Unit filename="src/Vendor/TinyXML/tinyxmlerror.cpp" />
 		<Unit filename="src/Vendor/TinyXML/tinyxmlparser.cpp" />
+		<Unit filename="src/Widgets/Button.cpp" />
+		<Unit filename="src/Widgets/Button.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

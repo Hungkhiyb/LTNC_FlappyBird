@@ -56,13 +56,18 @@ bool TextureManager::ParseTexture(std::string source)
     return true;
 }
 
+void TextureManager::QueryTexture(std::string id, int* out_w, int* out_h)
+{
+    SDL_QueryTexture(m_TextureMap[id], NULL, NULL, out_w, out_h);
+}
+
 
 void TextureManager::Draw(std::string id, int x, int y, int width, int height, float scrollRatio, float scale, SDL_RendererFlip flip)
 {
     SDL_Rect srcRect = {0, 0, width, height};
-    //Vector2D cam = Camera::GetInstance()->GetPosition() * scrollRatio;
+    Vector2D cam = Camera::GetInstance()->GetPosition() * scrollRatio;
 
-    SDL_Rect desRect = {x, y, width * scale, height * scale};
+    SDL_Rect desRect = {x - cam.X, y - cam.Y, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, 0, nullptr, flip);
 }
 
@@ -97,7 +102,7 @@ void TextureManager::DrawBackground(std::string id, int width, int height, float
     SDL_Rect desRect3 = {s_bgPos + width, 0, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect3, 0, nullptr, flip);
 
-    s_bgPos -= 1;
+    s_bgPos -= 0.2;
     if(s_bgPos <= -SCREEN_WIDTH)
         s_bgPos = 0;
 }

@@ -15,17 +15,15 @@
 #include "MapParser.h"
 #include "GameMap.h"
 #include "Bird.h"
+#include "GameState.h"
+#include "Input.h"
+#include "Play.h"
+#include "Menu.h"
+
 
 class Engine {
 
     public:
-        Engine();
-        ~Engine();
-
-        static Engine* GetInstance(){ return s_Instance = (s_Instance != nullptr) ? s_Instance : new Engine(); }
-        inline GameMap* GetMap1(){ return m_LevelMap1; }
-        inline GameMap* GetMap2(){ return m_LevelMap2; }
-
         bool Init();
         bool Clean();
         void Quit();
@@ -34,22 +32,28 @@ class Engine {
         void Render();
         void Events();
 
+        void PopState();
+        void PushState(GameState* current);
+        void ChangeState(GameState* target);
+
         inline bool IsRunning(){ return m_IsRunning; }
         inline SDL_Renderer* GetRenderer(){ return m_Renderer; }
+        inline SDL_Window* GetWindow() { return m_Window; }
+        static Engine* GetInstance(){ return s_Instance = (s_Instance != nullptr) ? s_Instance : new Engine(); }
 
     private:
-        bool m_IsRunning;
-        static int s_MapPos;
-        static int s_CollisionPos;
+        Engine() {}
+        virtual ~Engine() {
+            delete s_Instance;
+        }
 
-        GameMap* m_LevelMap1;
-        GameMap* m_LevelMap2;
+        bool m_IsRunning;
 
         SDL_Window* m_Window;
         SDL_Renderer* m_Renderer;
         static Engine* s_Instance;
 
-        std::vector<GameObject*> m_GameObjects;
+        std::vector<GameState*> m_State;
 };
 
 #endif // ENGINE_H

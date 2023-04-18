@@ -3,7 +3,7 @@
 	"Engine.h"
 	<ctime>
 
-1681056475 c:\users\msi\desktop\c++\flappy_bird\src\core\engine.h
+1681801297 c:\users\msi\desktop\c++\flappy_bird\src\core\engine.h
 	<iostream>
 	"SDL.h"
 	"SDL_image.h"
@@ -14,8 +14,12 @@
 	"MapParser.h"
 	"GameMap.h"
 	"Bird.h"
+	"GameState.h"
+	"Input.h"
+	"Play.h"
+	"Menu.h"
 
-1681137478 source:c:\users\msi\desktop\c++\flappy_bird\src\core\engine.cpp
+1681801737 source:c:\users\msi\desktop\c++\flappy_bird\src\core\engine.cpp
 	"Engine.h"
 
 1680855166 c:\users\msi\desktop\c++\flappy_bird\src\inputs\input.h
@@ -66,10 +70,10 @@
 
 1680885156 c:\users\msi\desktop\c++\flappy_bird\src\physics\point.h
 
-1680855890 c:\users\msi\desktop\c++\flappy_bird\src\physics\vector2d.h
+1681794217 c:\users\msi\desktop\c++\flappy_bird\src\physics\vector2d.h
 	<iostream>
 
-1680968856 c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.h
+1681750196 c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.h
 	<string>
 	<map>
 	<SDL.h>
@@ -80,7 +84,7 @@
 1681052161 source:c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.cpp
 	"Camera.h"
 
-1680969103 source:c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.cpp
+1681808709 source:c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 
 1681035490 c:\users\msi\desktop\c++\flappy_bird\src\map\mapparser.h
@@ -90,7 +94,7 @@
 	"TileLayer.h"
 	"tinyxml.h"
 
-1681037058 c:\users\msi\desktop\c++\flappy_bird\src\map\gamemap.h
+1681489878 c:\users\msi\desktop\c++\flappy_bird\src\map\gamemap.h
 	<vector>
 	"Layer.h"
 
@@ -108,17 +112,18 @@
 1681037058 source:c:\users\msi\desktop\c++\flappy_bird\src\map\tilelayer.cpp
 	"TileLayer.h"
 
-1681136897 source:c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.cpp
+1681633300 source:c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.cpp
 	"CollisionHandler.h"
 
-1681056211 c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.h
+1681634126 c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.h
 	<vector>
 	"SDL.h"
 	"TileLayer.h"
 	"GameMap.h"
 	"Engine.h"
+	"Play.h"
 
-1681137657 c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.h
+1681805780 c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.h
 	<math.h>
 	"Character.h"
 	"Animation.h"
@@ -142,7 +147,7 @@
 	"GameObject.h"
 	<string>
 
-1680884898 c:\users\msi\desktop\c++\flappy_bird\src\object\gameobject.h
+1681749673 c:\users\msi\desktop\c++\flappy_bird\src\object\gameobject.h
 	"IObject.h"
 	"Tranform.h"
 	"SDL.h"
@@ -150,13 +155,62 @@
 
 1680884898 c:\users\msi\desktop\c++\flappy_bird\src\object\iobject.h
 
-1680967557 c:\users\msi\desktop\c++\flappy_bird\src\physics\tranform.h
+1681749673 c:\users\msi\desktop\c++\flappy_bird\src\physics\tranform.h
 	<string>
 	"Vector2D.h"
 
 1680968856 source:c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.cpp
 	"Animation.h"
 
-1681051471 source:c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.cpp
+1681807235 source:c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.cpp
 	"Bird.h"
+
+1681801462 c:\users\msi\desktop\c++\flappy_bird\src\state\gamestate.h
+
+1681809810 c:\users\msi\desktop\c++\flappy_bird\src\state\play.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"Camera.h"
+	"TextureManager.h"
+	"Vector2D.h"
+	"Tranform.h"
+	"MapParser.h"
+	"GameMap.h"
+	"Bird.h"
+	"Menu.h"
+	"GameState.h"
+	"Button.h"
+
+1681827828 c:\users\msi\desktop\c++\flappy_bird\src\state\menu.h
+	<SDL.h>
+	<iostream>
+	"GameState.h"
+	"Engine.h"
+	"Button.h"
+
+1681826312 source:c:\users\msi\desktop\c++\flappy_bird\src\state\menu.cpp
+	"Menu.h"
+
+1681810266 source:c:\users\msi\desktop\c++\flappy_bird\src\state\play.cpp
+	"Play.h"
+
+1681827119 source:c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.cpp
+	"Button.h"
+
+1681794058 c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.h
+	<SDL.h>
+	<vector>
+	<string>
+	"GameObject.h"
+	"TextureManager.h"
+	"Input.h"
+
+1681807235 source:c:\users\msi\desktop\c++\flappy_bird\src\input\input.cpp
+	"Input.h"
+
+1681807245 c:\users\msi\desktop\c++\flappy_bird\src\input\input.h
+	<SDL.h>
+	"Engine.h"
+	"Vector2D.h"
 

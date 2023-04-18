@@ -26,14 +26,17 @@ class Bird : public Character
         virtual void Draw();
         virtual void Update(float dt);
         virtual void Clean();
-        void HandleEvent(SDL_Event& event);
+        void HandleEvent();
         inline bool PlayerDead(){ return m_IsDead; }
 
     private:
         void AnimationState();
+        void CountPoint();
 
         bool m_IsStart;
         bool m_IsDead;
+
+        static int s_CountPoint;
 
         Collider* m_Collider;
         Animation* m_Animation;

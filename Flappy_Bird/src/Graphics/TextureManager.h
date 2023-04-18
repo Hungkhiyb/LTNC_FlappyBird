@@ -18,6 +18,7 @@ class TextureManager
 
         bool LoadMedia(std::string id, std::string filename);
         bool ParseTexture(std::string source);
+        void QueryTexture(std::string id, int* out_w, int* out_h);
         void Drop(std::string id);
         void Clean();
 

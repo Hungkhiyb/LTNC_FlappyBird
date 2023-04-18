@@ -5,7 +5,7 @@ CollisionHandler* CollisionHandler::s_Instance = nullptr;
 CollisionHandler::CollisionHandler()
 {
     MapPos = 0;
-    m_CollisionLayer = (TileLayer*)Engine::GetInstance()->GetMap1()->GetMapLayers().back();
+    m_CollisionLayer = (TileLayer*)Play::GetInstance()->GetMap1()->GetMapLayers().back();
     m_CollisionTilemap = m_CollisionLayer->GetTilemap();
 }
 
@@ -17,7 +17,7 @@ CollisionHandler::~CollisionHandler()
 void CollisionHandler::Update(int mapPos)
 {
     MapPos = mapPos;
-    m_CollisionLayer = (TileLayer*)Engine::GetInstance()->GetMap2()->GetMapLayers().back();
+    m_CollisionLayer = (TileLayer*)Play::GetInstance()->GetMap2()->GetMapLayers().back();
     m_CollisionTilemap = m_CollisionLayer->GetTilemap();
 }
 

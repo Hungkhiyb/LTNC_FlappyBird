@@ -6,11 +6,11 @@
 class Vector2D
 {
     public:
-        float X, Y;
+        int X, Y;
 
     public:
         Vector2D() {}
-        Vector2D(float x, float y) :X(x), Y(y) {}
+        Vector2D(int x, int y) :X(x), Y(y) {}
         ~Vector2D() {}
 
     public:

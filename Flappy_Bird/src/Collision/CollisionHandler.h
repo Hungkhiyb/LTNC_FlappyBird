@@ -7,6 +7,7 @@
 #include "TileLayer.h"
 #include "GameMap.h"
 #include "Engine.h"
+#include "Play.h"
 
 class TileLayer;
 using TileMap = std::vector<std::vector<int>>;

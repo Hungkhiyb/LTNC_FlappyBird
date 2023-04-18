@@ -3,5 +3,20 @@
     <texture id="bird" source="assets/Bird/Bird.png"/>
 
     <texture id="bg1" source="assets/Background/Background.png"/>
+    <texture id="tile" source="assets/Background/Tile.png"/>
+    <texture id="tutorial" source="assets/Background/Tutorial.png"/>
+
+    <texture id="start_n" source="assets/Buttons/StartButton_n.png"/>
+    <texture id="start_h" source="assets/Buttons/StartButton_h.png"/>
+    <texture id="start_p" source="assets/Buttons/StartButton_p.png"/>
+    <texture id="settings_n" source="assets/Buttons/OptionButton_n.png"/>
+    <texture id="settings_h" source="assets/Buttons/OptionButton_h.png"/>
+    <texture id="settings_p" source="assets/Buttons/OptionButton_p.png"/>
+    <texture id="quit_n" source="assets/Buttons/QuitButton_n.png"/>
+    <texture id="quit_h" source="assets/Buttons/QuitButton_h.png"/>
+    <texture id="quit_p" source="assets/Buttons/QuitButton_p.png"/>
+    <texture id="pause_n" source="assets/Buttons/PauseButton_n.png"/>
+    <texture id="pause_h" source="assets/Buttons/PauseButton_h.png"/>
+    <texture id="pause_p" source="assets/Buttons/PauseButton_p.png"/>
 
 </Textures>

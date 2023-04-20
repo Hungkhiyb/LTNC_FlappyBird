@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(int x, int y, void(* callback)(), TextureIdList textureIDs)
+Button::Button(int x, int y, void(*callback)(), TextureIdList textureIDs)
 : GameObject(new Properties())
 {
     m_Transform->X = x;
@@ -34,9 +34,9 @@ void Button::Update(float dt)
 
     if(SDL_PointInRect(&point, &m_Shape)){
         if(Input::GetInstance()->GetMouseButtonDown(LEFT) && !m_IsReleased) {
-            m_Callback();
             m_TextureID = m_TextureIDs[PRESSED];
             m_IsReleased = true;
+            m_Callback();
         }
         else if(!Input::GetInstance()->GetMouseButtonDown(LEFT)){
             m_TextureID = m_TextureIDs[HOVER];
@@ -50,6 +50,6 @@ void Button::Update(float dt)
 
 void Button::Draw()
 {
-    TextureManager::GetInstance()->Draw(m_TextureID, m_Transform->X, m_Transform->Y, m_Width, m_Height);
+    TextureManager::GetInstance()->Draw(m_TextureID, m_Transform->X, m_Transform->Y);
 }
 

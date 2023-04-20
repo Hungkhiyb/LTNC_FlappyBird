@@ -11,8 +11,16 @@ CollisionHandler::CollisionHandler()
 
 CollisionHandler::~CollisionHandler()
 {
-    //dtor
+    delete s_Instance;
 }
+
+void CollisionHandler::Init()
+{
+    MapPos = 0;
+    m_CollisionLayer = (TileLayer*)Play::GetInstance()->GetMap1()->GetMapLayers().back();
+    m_CollisionTilemap = m_CollisionLayer->GetTilemap();
+}
+
 
 void CollisionHandler::Update(int mapPos)
 {

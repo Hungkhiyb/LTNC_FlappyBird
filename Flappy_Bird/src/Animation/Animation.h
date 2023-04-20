@@ -13,7 +13,7 @@ class Animation
         ~Animation();
 
         void Update();
-        void Draw(float x, float y, int spriteWidth, int spriteHeight, double angle = 0);
+        void Draw(int x, int y, int spriteWidth, int spriteHeight, double angle = 0);
         void SetProps(std::string textureID, int spriteRow, int frameCount, int animSpeed, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     private:

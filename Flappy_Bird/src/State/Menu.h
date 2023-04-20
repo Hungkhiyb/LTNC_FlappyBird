@@ -31,7 +31,7 @@ class Menu : public GameState
             }
 
             m_GuiObjects.clear();
-            //m_GuiObjects.shrink_to_fit();
+            m_GuiObjects.shrink_to_fit();
             delete s_Instance;
         }
 

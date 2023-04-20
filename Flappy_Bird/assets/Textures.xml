@@ -5,6 +5,9 @@
     <texture id="bg1" source="assets/Background/Background.png"/>
     <texture id="tile" source="assets/Background/Tile.png"/>
     <texture id="tutorial" source="assets/Background/Tutorial.png"/>
+    <texture id="pause" source="assets/Background/PauseState.png"/>
+    <texture id="gameover_tile" source="assets/Background/GameOver.png"/>
+    <texture id="gameover" source="assets/Background/GameOverPanel.png"/>
 
     <texture id="start_n" source="assets/Buttons/StartButton_n.png"/>
     <texture id="start_h" source="assets/Buttons/StartButton_h.png"/>
@@ -18,5 +21,14 @@
     <texture id="pause_n" source="assets/Buttons/PauseButton_n.png"/>
     <texture id="pause_h" source="assets/Buttons/PauseButton_h.png"/>
     <texture id="pause_p" source="assets/Buttons/PauseButton_p.png"/>
+    <texture id="resume_n" source="assets/Buttons/ResumeButton_n.png"/>
+    <texture id="resume_h" source="assets/Buttons/ResumeButton_h.png"/>
+    <texture id="resume_p" source="assets/Buttons/ResumeButton_p.png"/>
+    <texture id="home_n" source="assets/Buttons/HomeButton_n.png"/>
+    <texture id="home_h" source="assets/Buttons/HomeButton_h.png"/>
+    <texture id="home_p" source="assets/Buttons/HomeButton_p.png"/>
+    <texture id="restart_n" source="assets/Buttons/RestartButton_n.png"/>
+    <texture id="restart_h" source="assets/Buttons/RestartButton_h.png"/>
+    <texture id="restart_p" source="assets/Buttons/RestartButton_p.png"/>
 
 </Textures>

@@ -14,6 +14,7 @@ class Camera
         ~Camera(){ delete s_Instance; };
         inline static Camera* GetInstance() { return s_Instance = (s_Instance != nullptr) ? s_Instance : new Camera(); }
 
+        void Init();
         void Update(float dt);
 
         inline SDL_Rect GetViewBox() { return m_ViewBox; }

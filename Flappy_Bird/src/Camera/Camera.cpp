@@ -2,6 +2,15 @@
 
 Camera* Camera::s_Instance = nullptr;
 
+void Camera::Init()
+{
+    m_ViewBox = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
+    m_Target = nullptr;
+    m_Position.X = 0;
+    m_Position.Y = 0;
+}
+
+
 void Camera::Update(float dt)
 {
     if(m_Target != nullptr)

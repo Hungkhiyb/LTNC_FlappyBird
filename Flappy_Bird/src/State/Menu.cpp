@@ -5,6 +5,7 @@ int Menu::s_MapPos;
 
 void Menu::Init()
 {
+    Camera::GetInstance()->Init();
     m_Ctxt = Engine::GetInstance()->GetRenderer();
 
     Button* start = new Button(SCREEN_WIDTH / 2 - 90, 350, StartGame, {"start_n", "start_h", "start_p"});
@@ -30,7 +31,7 @@ void Menu::Exit()
     }
 
     m_GuiObjects.clear();
-    //m_GuiObjects.shrink_to_fit();
+    m_GuiObjects.shrink_to_fit();
     std::cout << "exit menu!" << std::endl;
 }
 
@@ -47,8 +48,8 @@ void Menu::Render()
     SDL_SetRenderDrawColor(m_Ctxt, 0, 255, 255, 255);
     SDL_RenderClear(m_Ctxt);
 
-    TextureManager::GetInstance()->DrawBackground("bg1", 960, 640, 1);
-    TextureManager::GetInstance()->Draw("tile", (SCREEN_WIDTH - 458) / 2, 100, 458, 150);
+    TextureManager::GetInstance()->DrawBackground("bg1");
+    TextureManager::GetInstance()->DrawCenterX("tile", 100, 1.2);
 
     if(s_MapPos <= -SCREEN_WIDTH)
         s_MapPos = 0;

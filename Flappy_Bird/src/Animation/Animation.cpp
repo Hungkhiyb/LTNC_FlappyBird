@@ -15,7 +15,7 @@ void Animation::Update()
     m_SpriteFrame = (SDL_GetTicks() / m_AnimSpeed) % m_FrameCount;
 }
 
-void Animation::Draw(float x, float y, int spriteWidth, int spriteHeight, double angle)
+void Animation::Draw(int x, int y, int spriteWidth, int spriteHeight, double angle)
 {
     TextureManager::GetInstance()->DrawFrame(m_TextureID, x, y, spriteWidth, spriteHeight, m_SpriteRow, m_SpriteFrame, angle, m_Flip);
 }

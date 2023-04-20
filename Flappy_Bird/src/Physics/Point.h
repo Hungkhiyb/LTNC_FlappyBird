@@ -7,7 +7,7 @@ class Point
     public:
         float X, Y;
 
-        Point(float X = 0, float Y = 0) : X(X), Y(Y) {}
+        Point(int X = 0, int Y = 0) : X(X), Y(Y) {}
         ~Point() {}
 
         // addition +

@@ -31,6 +31,7 @@ void Bird::Draw()
 {
     double angle = atan(m_Transform->VelY / VEL_X) * 360 / 2 / 3.14;
     m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height, angle);
+
 /*
     //Test box collision
     Vector2D cam = Camera::GetInstance()->GetPosition();
@@ -115,5 +116,5 @@ void Bird::Clean()
     m_Collider = nullptr;
     m_Animation = nullptr;
 
-    TextureManager::GetInstance()->Drop(m_TextureID);
+    //TextureManager::GetInstance()->Drop(m_TextureID);
 }

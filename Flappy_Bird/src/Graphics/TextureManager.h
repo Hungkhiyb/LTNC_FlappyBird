@@ -22,11 +22,13 @@ class TextureManager
         void Drop(std::string id);
         void Clean();
 
-        void Draw(std::string id, int x, int y, int width, int height, float scrollRatio = 0, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void Draw(std::string id, int x, int y, float scrollRatio = 0, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void DrawCenter(std::string id, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void DrawCenterX(std::string id, int y, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void DrawCenterY(std::string id, int x, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
         void DrawTile(std::string tilesetID, int tileSize, int x, int y, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
         void DrawFrame(std::string id, int x, int y, int width, int height, int row, int frame, double angle = 0, SDL_RendererFlip flip = SDL_FLIP_NONE);
-
-        void DrawBackground(std::string id, int width, int height, float scrollRatio, int srcX = 0, int srcY = 0, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void DrawBackground(std::string id, int x = 0, int y = 0, float scale = 1, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     private:
         std::map<std::string, SDL_Texture*> m_TextureMap;

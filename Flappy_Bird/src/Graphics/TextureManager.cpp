@@ -62,14 +62,58 @@ void TextureManager::QueryTexture(std::string id, int* out_w, int* out_h)
 }
 
 
-void TextureManager::Draw(std::string id, int x, int y, int width, int height, float scrollRatio, float scale, SDL_RendererFlip flip)
+void TextureManager::Draw(std::string id, int x, int y, float scrollRatio, float scale, SDL_RendererFlip flip)
 {
+    int width, height;
+    QueryTexture(id, &width, &height);
+
     SDL_Rect srcRect = {0, 0, width, height};
     Vector2D cam = Camera::GetInstance()->GetPosition() * scrollRatio;
 
     SDL_Rect desRect = {x - cam.X, y - cam.Y, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, 0, nullptr, flip);
 }
+
+void TextureManager::DrawCenter(std::string id, float scale, SDL_RendererFlip flip)
+{
+    int width, height;
+    QueryTexture(id, &width, &height);
+
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    int x, y;
+    x = (SCREEN_WIDTH - width * scale) / 2;
+    y = (SCREEN_HEIGHT - height * scale) / 2;
+    SDL_Rect desRect = {x, y, width * scale, height * scale};
+    SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, 0, nullptr, flip);
+}
+
+void TextureManager::DrawCenterX(std::string id, int y, float scale, SDL_RendererFlip flip)
+{
+    int width, height;
+    QueryTexture(id, &width, &height);
+
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    int x;
+    x = (SCREEN_WIDTH - width * scale) / 2;
+    SDL_Rect desRect = {x, y, width * scale, height * scale};
+    SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, 0, nullptr, flip);
+}
+
+void TextureManager::DrawCenterY(std::string id, int x, float scale, SDL_RendererFlip flip)
+{
+    int width, height;
+    QueryTexture(id, &width, &height);
+
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    int y;
+    y = (SCREEN_HEIGHT - height * scale) / 2;
+    SDL_Rect desRect = {x, y, width * scale, height * scale};
+    SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, 0, nullptr, flip);
+}
+
 
 void TextureManager::DrawTile(std::string tilesetID, int tileSize, int x, int y, int row, int frame, SDL_RendererFlip flip)
 {
@@ -89,18 +133,18 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect, angle, nullptr, flip);
 }
 
-void TextureManager::DrawBackground(std::string id, int width, int height, float scrollRatio, int srcX, int srcY, float scale, SDL_RendererFlip flip)
+void TextureManager::DrawBackground(std::string id, int x, int y, float scale, SDL_RendererFlip flip)
 {
-    SDL_Rect srcRect = {srcX, srcY, width, height};
+    int width, height;
+    QueryTexture(id, &width, &height);
 
-    SDL_Rect desRect1 = {s_bgPos - width, 0, width * scale, height * scale};
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    SDL_Rect desRect1 = {s_bgPos, 0, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect1, 0, nullptr, flip);
 
-    SDL_Rect desRect2 = {s_bgPos, 0, width * scale, height * scale};
+    SDL_Rect desRect2 = {s_bgPos + width, 0, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect2, 0, nullptr, flip);
-
-    SDL_Rect desRect3 = {s_bgPos + width, 0, width * scale, height * scale};
-    SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect3, 0, nullptr, flip);
 
     s_bgPos -= 0.2;
     if(s_bgPos <= -SCREEN_WIDTH)

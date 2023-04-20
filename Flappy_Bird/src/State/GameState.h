@@ -19,6 +19,9 @@ class GameState
     protected:
         GameState() {}
         virtual ~GameState() {}
+
+        bool m_Pause;
+
         SDL_Renderer* m_Ctxt;
 
 };

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sounds>
+    <effect id="jump" source="assets/Sounds/jump.ogg"/>
+    <effect id="success" source="assets/Sounds/success.ogg"/>
+    <effect id="dead" source="assets/Sounds/dead.ogg"/>
+    <effect id="start" source="assets/Sounds/startMusic.ogg"/>
+    <effect id="end" source="assets/Sounds/endMusic.ogg"/>
+    <effect id="click" source="assets/Sounds/click.ogg"/>
+    <effect id="point" source="assets/Sounds/point.ogg"/>
+
+    <music id="themeMusic" source="assets/Sounds/themeMusic.ogg"/>
+</sounds>

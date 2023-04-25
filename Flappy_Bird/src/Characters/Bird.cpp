@@ -2,11 +2,10 @@
 
 const float Time = 0.8;
 
-int Bird::s_CountPoint;
-
 Bird::Bird(Properties* props) : Character(props)
 {
-    s_CountPoint = 0;
+    m_CountPoint = 0;
+    m_delayJump = 0;
 
     m_Flip = SDL_FLIP_NONE;
 
@@ -30,6 +29,8 @@ Bird::~Bird()
 void Bird::Draw()
 {
     double angle = atan(m_Transform->VelY / VEL_X) * 360 / 2 / 3.14;
+    if(angle < -50)
+        angle = -45;
     m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height, angle);
 
 /*
@@ -44,29 +45,31 @@ void Bird::Draw()
 
 void Bird::CountPoint()
 {
-    int tmp = s_CountPoint;
+    int tmp = m_CountPoint;
     int count = (m_Transform->X - SCREEN_WIDTH + 64) / 192;
     if(count < 0)
-        s_CountPoint = 0;
+        m_CountPoint = 0;
     else
-        s_CountPoint = count;
-    if(tmp != s_CountPoint)
-        std::cout << count << std::endl;
+        m_CountPoint = count;
+    if(tmp != m_CountPoint)
+        SoundManager::GetInstance()->PlayEffect("point");
 }
 
 
 void Bird::HandleEvent()
 {
     if(m_Transform->X > 0 && m_Transform->Y > 0 && m_Transform->Y <= SCREEN_HEIGHT - 64){
-        if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE)){
+        if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_SPACE) && SDL_GetTicks() - m_delayJump > DELAY_JUMP){
             m_IsStart = true;
             m_Transform->VelY = -VEL_JUMP;
+            SoundManager::GetInstance()->PlayEffect("jump");
+            m_delayJump = SDL_GetTicks();
         }
     }
 }
 
 
-void Bird::Update(float dt)
+void Bird::Update()
 {
     if(m_IsStart){
         //Move on x axis
@@ -115,6 +118,4 @@ void Bird::Clean()
     delete m_Animation;
     m_Collider = nullptr;
     m_Animation = nullptr;
-
-    //TextureManager::GetInstance()->Drop(m_TextureID);
 }

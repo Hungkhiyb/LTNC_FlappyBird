@@ -31,4 +31,9 @@
     <texture id="restart_h" source="assets/Buttons/RestartButton_h.png"/>
     <texture id="restart_p" source="assets/Buttons/RestartButton_p.png"/>
 
+    <texture id="coper" source="assets/Medals/CoperMedal.png"/>
+    <texture id="silver" source="assets/Medals/SilverMedal.png"/>
+    <texture id="gold" source="assets/Medals/GoldMedal.png"/>
+    <texture id="platinum" source="assets/Medals/PlatinumMedal.png"/>
+
 </Textures>

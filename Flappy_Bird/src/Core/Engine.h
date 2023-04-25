@@ -19,6 +19,7 @@
 #include "Input.h"
 #include "Play.h"
 #include "Menu.h"
+#include "SoundManager.h"
 
 
 class Engine {
@@ -39,13 +40,11 @@ class Engine {
         inline bool IsRunning(){ return m_IsRunning; }
         inline SDL_Renderer* GetRenderer(){ return m_Renderer; }
         inline SDL_Window* GetWindow() { return m_Window; }
-        static Engine* GetInstance(){ return s_Instance = (s_Instance != nullptr) ? s_Instance : new Engine(); }
+        inline static Engine* GetInstance(){ return s_Instance = (s_Instance != nullptr) ? s_Instance : new Engine(); }
 
     private:
         Engine() {}
-        virtual ~Engine() {
-            delete s_Instance;
-        }
+        virtual ~Engine() { delete s_Instance; }
 
         bool m_IsRunning;
 

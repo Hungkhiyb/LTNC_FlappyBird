@@ -11,7 +11,7 @@
 #include "CollisionHandler.h"
 
 #define VEL_JUMP 5
-#define DELAY_JUMP 50
+#define DELAY_JUMP 200
 #define GRAVITY 0.2f
 #define VEL_X 3
 
@@ -24,10 +24,11 @@ class Bird : public Character
         ~Bird();
 
         virtual void Draw();
-        virtual void Update(float dt);
+        virtual void Update();
         virtual void Clean();
         void HandleEvent();
         inline bool PlayerDead(){ return m_IsDead; }
+        inline int GetPoint(){ return m_CountPoint; }
 
     private:
         void AnimationState();
@@ -36,7 +37,8 @@ class Bird : public Character
         bool m_IsStart;
         bool m_IsDead;
 
-        static int s_CountPoint;
+        int m_CountPoint;
+        int m_delayJump;
 
         Collider* m_Collider;
         Animation* m_Animation;

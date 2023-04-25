@@ -10,7 +10,7 @@ class Animation
 {
     public:
         Animation();
-        ~Animation();
+        virtual ~Animation();
 
         void Update();
         void Draw(int x, int y, int spriteWidth, int spriteHeight, double angle = 0);

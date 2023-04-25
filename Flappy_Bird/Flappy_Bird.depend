@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1680932654 source:c:\users\msi\desktop\c++\flappy_bird\main.cpp
+1682045293 source:c:\users\msi\desktop\c++\flappy_bird\main.cpp
 	"Engine.h"
 	<ctime>
 
-1681801297 c:\users\msi\desktop\c++\flappy_bird\src\core\engine.h
+1682140002 c:\users\msi\desktop\c++\flappy_bird\src\core\engine.h
 	<iostream>
 	"SDL.h"
 	"SDL_image.h"
@@ -18,8 +18,9 @@
 	"Input.h"
 	"Play.h"
 	"Menu.h"
+	"SoundManager.h"
 
-1681801737 source:c:\users\msi\desktop\c++\flappy_bird\src\core\engine.cpp
+1682140813 source:c:\users\msi\desktop\c++\flappy_bird\src\core\engine.cpp
 	"Engine.h"
 
 1680855166 c:\users\msi\desktop\c++\flappy_bird\src\inputs\input.h
@@ -62,7 +63,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1681992514 c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.h
+1682434459 c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.h
 	"Point.h"
 	"Vector2D.h"
 	"Engine.h"
@@ -73,18 +74,19 @@
 1681794217 c:\users\msi\desktop\c++\flappy_bird\src\physics\vector2d.h
 	<iostream>
 
-1681995186 c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.h
+1682392866 c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.h
 	<string>
 	<map>
 	<SDL.h>
+	<SDL_ttf.h>
 	"tinyxml.h"
 	"Engine.h"
 	"Camera.h"
 
-1681992668 source:c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.cpp
+1682434459 source:c:\users\msi\desktop\c++\flappy_bird\src\camera\camera.cpp
 	"Camera.h"
 
-1682002826 source:c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.cpp
+1682392866 source:c:\users\msi\desktop\c++\flappy_bird\src\graphics\texturemanager.cpp
 	"TextureManager.h"
 
 1681035490 c:\users\msi\desktop\c++\flappy_bird\src\map\mapparser.h
@@ -115,7 +117,7 @@
 1681966684 source:c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.cpp
 	"CollisionHandler.h"
 
-1681967485 c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.h
+1682044095 c:\users\msi\desktop\c++\flappy_bird\src\collision\collisionhandler.h
 	<vector>
 	"SDL.h"
 	"TileLayer.h"
@@ -123,7 +125,7 @@
 	"Engine.h"
 	"Play.h"
 
-1681805780 c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.h
+1682392278 c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.h
 	<math.h>
 	"Character.h"
 	"Animation.h"
@@ -132,7 +134,7 @@
 	"Camera.h"
 	"CollisionHandler.h"
 
-1681990151 c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.h
+1682042880 c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.h
 	<string>
 	<SDL.h>
 	"TextureManager.h"
@@ -143,17 +145,18 @@
 1680885156 c:\users\msi\desktop\c++\flappy_bird\src\physics\collider.h
 	"SDL.h"
 
-1680886671 c:\users\msi\desktop\c++\flappy_bird\src\characters\character.h
+1682140365 c:\users\msi\desktop\c++\flappy_bird\src\characters\character.h
 	"GameObject.h"
 	<string>
 
-1681749673 c:\users\msi\desktop\c++\flappy_bird\src\object\gameobject.h
+1682140365 c:\users\msi\desktop\c++\flappy_bird\src\object\gameobject.h
 	"IObject.h"
 	"Tranform.h"
 	"SDL.h"
 	"Point.h"
+	"SoundManager.h"
 
-1680884898 c:\users\msi\desktop\c++\flappy_bird\src\object\iobject.h
+1682043043 c:\users\msi\desktop\c++\flappy_bird\src\object\iobject.h
 
 1681749673 c:\users\msi\desktop\c++\flappy_bird\src\physics\tranform.h
 	<string>
@@ -162,12 +165,12 @@
 1681995186 source:c:\users\msi\desktop\c++\flappy_bird\src\animation\animation.cpp
 	"Animation.h"
 
-1681994001 source:c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.cpp
+1682392540 source:c:\users\msi\desktop\c++\flappy_bird\src\characters\bird.cpp
 	"Bird.h"
 
-1681834768 c:\users\msi\desktop\c++\flappy_bird\src\state\gamestate.h
+1682140002 c:\users\msi\desktop\c++\flappy_bird\src\state\gamestate.h
 
-1682000172 c:\users\msi\desktop\c++\flappy_bird\src\state\play.h
+1682435247 c:\users\msi\desktop\c++\flappy_bird\src\state\play.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -182,23 +185,23 @@
 	"GameState.h"
 	"Button.h"
 
-1681999481 c:\users\msi\desktop\c++\flappy_bird\src\state\menu.h
+1682140900 c:\users\msi\desktop\c++\flappy_bird\src\state\menu.h
 	<SDL.h>
 	<iostream>
 	"GameState.h"
 	"Engine.h"
 	"Button.h"
 
-1681992713 source:c:\users\msi\desktop\c++\flappy_bird\src\state\menu.cpp
+1682434510 source:c:\users\msi\desktop\c++\flappy_bird\src\state\menu.cpp
 	"Menu.h"
 
-1682002774 source:c:\users\msi\desktop\c++\flappy_bird\src\state\play.cpp
+1682434773 source:c:\users\msi\desktop\c++\flappy_bird\src\state\play.cpp
 	"Play.h"
 
-1681999786 source:c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.cpp
+1682335609 source:c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.cpp
 	"Button.h"
 
-1681794058 c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.h
+1682043053 c:\users\msi\desktop\c++\flappy_bird\src\widgets\button.h
 	<SDL.h>
 	<vector>
 	<string>
@@ -206,10 +209,10 @@
 	"TextureManager.h"
 	"Input.h"
 
-1681807235 source:c:\users\msi\desktop\c++\flappy_bird\src\input\input.cpp
+1682305853 source:c:\users\msi\desktop\c++\flappy_bird\src\input\input.cpp
 	"Input.h"
 
-1681807245 c:\users\msi\desktop\c++\flappy_bird\src\input\input.h
+1682305853 c:\users\msi\desktop\c++\flappy_bird\src\input\input.h
 	<SDL.h>
 	"Engine.h"
 	"Vector2D.h"
@@ -223,4 +226,14 @@
 	"Pause.h"
 
 1681827905 c:\users\msi\desktop\c++\flappy_bird\src\state\pause.h
+
+1682334974 c:\users\msi\desktop\c++\flappy_bird\src\soundmanager\soundmanager.h
+	<map>
+	<string>
+	<iostream>
+	<SDL_mixer.h>
+	"tinyxml.h"
+
+1682415881 source:c:\users\msi\desktop\c++\flappy_bird\src\soundmanager\soundmanager.cpp
+	"SoundManager.h"
 

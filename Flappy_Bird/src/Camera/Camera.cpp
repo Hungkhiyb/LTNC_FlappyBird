@@ -11,7 +11,7 @@ void Camera::Init()
 }
 
 
-void Camera::Update(float dt)
+void Camera::Update()
 {
     if(m_Target != nullptr)
     {

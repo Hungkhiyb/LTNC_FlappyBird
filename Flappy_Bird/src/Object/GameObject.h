@@ -5,6 +5,7 @@
 #include "Tranform.h"
 #include "SDL.h"
 #include "Point.h"
+#include "SoundManager.h"
 
 struct Properties
 {
@@ -47,7 +48,7 @@ class GameObject : public IObject
         inline Point* GetOrigin() { return m_Origin; }
 
         virtual void Draw() = 0;
-        virtual void Update(float dt) = 0;
+        virtual void Update() = 0;
         virtual void Clean() = 0;
 
     protected:

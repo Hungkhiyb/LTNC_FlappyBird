@@ -25,7 +25,7 @@ void Button::Clean()
     //m_TextureIDs.shrink_to_fit();
 }
 
-void Button::Update(float dt)
+void Button::Update()
 {
     Vector2D MouseMotion = Input::GetInstance()->GetMouseMotion();
     SDL_Point point = {MouseMotion.X, MouseMotion.Y};
@@ -36,6 +36,7 @@ void Button::Update(float dt)
         if(Input::GetInstance()->GetMouseButtonDown(LEFT) && !m_IsReleased) {
             m_TextureID = m_TextureIDs[PRESSED];
             m_IsReleased = true;
+            SoundManager::GetInstance()->PlayEffect("click");
             m_Callback();
         }
         else if(!Input::GetInstance()->GetMouseButtonDown(LEFT)){

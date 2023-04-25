@@ -19,7 +19,7 @@ class Button : public GameObject
         virtual ~Button();
 
         virtual void Clean() override;
-        virtual void Update(float dt) override;
+        virtual void Update() override;
         virtual void Draw();
 
     private:

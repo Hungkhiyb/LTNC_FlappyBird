@@ -1,8 +1,6 @@
 #include "Play.h"
 
 Play* Play::s_Instance = nullptr;
-int Play::s_MapPos = 0;
-int Play::s_CollisionPos = 0;
 Bird* player = nullptr;
 
 void Play::Init()
@@ -27,12 +25,14 @@ void Play::Init()
     m_GuiObjects.push_back(restart);
 
     CollisionHandler::GetInstance()->Init();
+    SoundManager::GetInstance()->PlayMusic("themeMusic");
 
     s_MapPos = 0;
     s_CollisionPos = 0;
     m_Pause = false;
     m_Menu = false;
     m_GameOver = false;
+    tmpPoint = 0;
 
     std::cerr << "Play Initialized!" << std::endl;
 }
@@ -58,6 +58,19 @@ void Play::Exit()
     std::cerr << "Exit Play!" << std::endl;
 }
 
+std::string Play::GetPoint(int point)
+{
+    int tmp = point;
+    std::string str_point = "";
+    if(tmp == 0)
+        str_point = "0";
+    while(tmp != 0){
+        str_point = char(tmp % 10 + '0') + str_point;
+        tmp /= 10;
+    }
+    return str_point;
+}
+
 void Play::Render()
 {
     SDL_SetRenderDrawColor(m_Ctxt, 0, 255, 255, 255);
@@ -72,6 +85,12 @@ void Play::Render()
     for(int i = 0; i < m_GameObjects.size(); i++)
         m_GameObjects[i]->Draw();
 
+    SDL_Color textColor = {255, 255, 255};
+
+    if(!m_Pause){
+        TextureManager::GetInstance()->DrawTextCenter("assets/Fonts/FontPoint.ttf", GetPoint(player->GetPoint()), 70, textColor, SCREEN_WIDTH / 2, 30);
+    }
+
     for(int i = 0; i < 1; i++)
         m_GuiObjects[i]->Draw();
 
@@ -80,11 +99,25 @@ void Play::Render()
         TextureManager::GetInstance()->DrawCenter("gameover", 4);
         for(int i = 2; i < 4; i++)
             m_GuiObjects[i]->Draw();
+        if(tmpPoint > player->GetPoint())
+            tmpPoint = player->GetPoint();
+        TextureManager::GetInstance()->DrawTextCenter("assets/Fonts/FontPoint.ttf", GetPoint(tmpPoint), 70, textColor, 620, 280);
+        if(player->GetPoint() >= 10 && tmpPoint == player->GetPoint())
+            TextureManager::GetInstance()->Draw("coper", 310, 290, 0, 4);
+        if(player->GetPoint() >= 20 && tmpPoint == player->GetPoint())
+            TextureManager::GetInstance()->Draw("silver", 310, 290, 0, 4);
+        if(player->GetPoint() >= 30 && tmpPoint == player->GetPoint())
+            TextureManager::GetInstance()->Draw("gold", 310, 290, 0, 4);
+        if(player->GetPoint() >= 40 && tmpPoint == player->GetPoint())
+            TextureManager::GetInstance()->Draw("platinum", 310, 290, 0, 4);
+        SDL_Delay(20);
+        tmpPoint++;
     }
     else if(m_Pause){
         TextureManager::GetInstance()->DrawCenter("pause");
         for(int i = 1; i < 4; i++)
             m_GuiObjects[i]->Draw();
+        TextureManager::GetInstance()->DrawTextCenter("assets/Fonts/FontPoint.ttf", GetPoint(player->GetPoint()), 70, textColor, 370, 280);
     }
 
     SDL_RenderPresent(m_Ctxt);
@@ -94,13 +127,13 @@ void Play::Update()
 {
     if(player->PlayerDead()){
         for(int i = 2; i < 4; i++)
-            m_GuiObjects[i]->Update(0);
+            m_GuiObjects[i]->Update();
         if(m_Menu)
             Engine::GetInstance()->ChangeState(Menu::GetInstance());
     }
     else if(m_Pause){
         for(int i = 1; i < 4; i++)
-            m_GuiObjects[i]->Update(0);
+            m_GuiObjects[i]->Update();
         if(m_Menu)
             Engine::GetInstance()->ChangeState(Menu::GetInstance());
     }
@@ -121,21 +154,24 @@ void Play::Update()
         }
 
         for(int i = 0; i < m_GameObjects.size(); i++)
-            m_GameObjects[i]->Update(1);
+            m_GameObjects[i]->Update();
         for(int i = 0; i < 1; i++)
-            m_GuiObjects[i]->Update(0);
+            m_GuiObjects[i]->Update();
 
-        Camera::GetInstance()->Update(0);
-        if(player->PlayerDead())
+        Camera::GetInstance()->Update();
+        if(player->PlayerDead()){
             s_Instance->Pause();
+            SoundManager::GetInstance()->PauseMusic();
+            SoundManager::GetInstance()->PlayEffect("end");
+            SoundManager::GetInstance()->PlayEffect("dead");
+        }
     }
 }
 
 void Play::HandleEvents()
 {
-    if(Input::GetInstance()->GetKeyDown(SDL_SCANCODE_R) && m_Pause)
-        s_Instance->Resume();
-    player->HandleEvent();
+    if(!m_Pause)
+        player->HandleEvent();
 }
 
 void Play::Pause()

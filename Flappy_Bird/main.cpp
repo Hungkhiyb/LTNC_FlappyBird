@@ -24,8 +24,6 @@ int main(int argc, char** argv)
 
         if(frameTime > frame)
             SDL_Delay(frameTime - frame);
-
-
     }
 
     Engine::GetInstance()->Clean();

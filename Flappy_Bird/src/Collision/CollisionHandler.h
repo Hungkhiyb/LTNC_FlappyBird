@@ -16,7 +16,7 @@ class CollisionHandler
 {
     public:
         CollisionHandler();
-        ~CollisionHandler();
+        virtual ~CollisionHandler();
 
         void Init();
         void Update(int mapPos);

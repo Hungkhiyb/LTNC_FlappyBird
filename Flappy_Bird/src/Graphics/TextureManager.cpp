@@ -2,11 +2,11 @@
 
 
 TextureManager* TextureManager::s_Instance = nullptr;
-float TextureManager::s_bgPos;
 
 TextureManager::TextureManager()
 {
-    s_bgPos = 0;
+    TTF_Init();
+    m_bgPos = 0;
 }
 
 TextureManager::~TextureManager()
@@ -17,22 +17,41 @@ TextureManager::~TextureManager()
 bool TextureManager::LoadMedia(std::string id, std::string filename)
 {
     SDL_Surface* surface = IMG_Load(filename.c_str());
-    if(surface == nullptr)
-    {
+    if(surface == nullptr){
         std::cerr << "Failed to load texture: " << filename.c_str() << ' ' << SDL_GetError() << std::endl;
         return false;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(Engine::GetInstance()->GetRenderer(), surface);
-    if(texture == nullptr)
-    {
+    if(texture == nullptr){
         std::cerr << "Failed to load texture from surface: " << SDL_GetError() << std::endl;
         return false;
     }
 
     m_TextureMap[id] = texture;
+    SDL_FreeSurface(surface);
     return true;
 }
+
+bool TextureManager::LoadText(std::string text, SDL_Color textColor)
+{
+    SDL_Surface* surface = TTF_RenderText_Solid(m_Font, text.c_str(), textColor);
+    if( surface == NULL ){
+        std::cerr << "Failed to load texture from text: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    m_Texture = SDL_CreateTextureFromSurface(Engine::GetInstance()->GetRenderer(), surface);
+    if( m_Texture == NULL )
+    {
+        std::cerr << "Failed to load texture from surface: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    SDL_FreeSurface(surface);
+    return true;
+}
+
 
 bool TextureManager::ParseTexture(std::string source)
 {
@@ -140,17 +159,50 @@ void TextureManager::DrawBackground(std::string id, int x, int y, float scale, S
 
     SDL_Rect srcRect = {0, 0, width, height};
 
-    SDL_Rect desRect1 = {s_bgPos, 0, width * scale, height * scale};
+    SDL_Rect desRect1 = {m_bgPos, 0, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect1, 0, nullptr, flip);
 
-    SDL_Rect desRect2 = {s_bgPos + width, 0, width * scale, height * scale};
+    SDL_Rect desRect2 = {m_bgPos + width, 0, width * scale, height * scale};
     SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &desRect2, 0, nullptr, flip);
 
-    s_bgPos -= 0.2;
-    if(s_bgPos <= -SCREEN_WIDTH)
-        s_bgPos = 0;
+    m_bgPos -= 0.2;
+    if(m_bgPos <= -SCREEN_WIDTH)
+        m_bgPos = 0;
 }
 
+void TextureManager::DrawText(std::string source, std::string text, int size, SDL_Color textColor, int x, int y)
+{
+    m_Font = TTF_OpenFont(source.c_str(), size);
+    if(m_Font == nullptr)
+        std::cerr << "Failed to load font: " << TTF_GetError() << std::endl;
+
+    if(!LoadText(text, textColor))
+        std::cerr << "Failed to render text texture!" << std::endl;
+
+    int width, height;
+    SDL_QueryTexture(m_Texture, NULL, NULL, &width, &height);
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    SDL_Rect desRect = {x, y, width, height};
+    SDL_RenderCopy(Engine::GetInstance()->GetRenderer(), m_Texture, &srcRect, &desRect);
+}
+
+void TextureManager::DrawTextCenter(std::string source, std::string text, int size, SDL_Color textColor, int x, int y)
+{
+    m_Font = TTF_OpenFont(source.c_str(), size);
+    if(m_Font == nullptr)
+        std::cerr << "Failed to load font: " << TTF_GetError() << std::endl;
+
+    if(!LoadText(text, textColor))
+        std::cerr << "Failed to render text texture!" << std::endl;
+
+    int width, height;
+    SDL_QueryTexture(m_Texture, NULL, NULL, &width, &height);
+    SDL_Rect srcRect = {0, 0, width, height};
+
+    SDL_Rect desRect = {(2*x - width) / 2, y, width, height};
+    SDL_RenderCopy(Engine::GetInstance()->GetRenderer(), m_Texture, &srcRect, &desRect);
+}
 
 void TextureManager::Drop(std::string id)
 {

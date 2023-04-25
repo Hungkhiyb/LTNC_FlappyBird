@@ -28,6 +28,7 @@ bool Engine::Init()
 
     TextureManager::GetInstance()->ParseTexture("assets/Textures.xml");
     MapParser::GetInstance()->ParseFileMap("assets/Maps/Map.xml");
+    SoundManager::GetInstance()->ParseSound("assets/Sound.xml");
 
     PushState(Menu::GetInstance());
 
@@ -39,7 +40,6 @@ void Engine::Events()
 {
     Input::GetInstance()->Listen();
     m_State.back()->HandleEvents();
-    //std::cout << "Done!" << std::endl;
 }
 
 void Engine::Update()

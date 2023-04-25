@@ -10,7 +10,7 @@ class Character : public GameObject
         Character(Properties* props) : GameObject(props) {}
 
         virtual void Draw() = 0;
-        virtual void Update(float dt) = 0;
+        virtual void Update() = 0;
         virtual void Clean() = 0;
 
     protected:

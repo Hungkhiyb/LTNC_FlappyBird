@@ -24,14 +24,6 @@ class Menu : public GameState
     protected:
         Menu(){}
         virtual ~Menu(){
-            for(auto object : m_GuiObjects){
-                object->Clean();
-                delete object;
-                object = nullptr;
-            }
-
-            m_GuiObjects.clear();
-            m_GuiObjects.shrink_to_fit();
             delete s_Instance;
         }
 

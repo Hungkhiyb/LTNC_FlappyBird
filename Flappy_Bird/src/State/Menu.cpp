@@ -9,14 +9,14 @@ void Menu::Init()
     m_Ctxt = Engine::GetInstance()->GetRenderer();
 
     Button* start = new Button(SCREEN_WIDTH / 2 - 90, 350, StartGame, {"start_n", "start_h", "start_p"});
-    Button* settings = new Button(SCREEN_WIDTH / 2 - 90, 420, Settings, {"settings_n", "settings_h", "settings_p"});
-    Button* quit = new Button(SCREEN_WIDTH / 2 - 90, 490, Quit, {"quit_n", "quit_h", "quit_p"});
+    Button* quit = new Button(SCREEN_WIDTH / 2 - 90, 440, Quit, {"quit_n", "quit_h", "quit_p"});
 
     m_LevelMap = MapParser::GetInstance()->GetMap("level0");
 
     m_GuiObjects.push_back(start);
-    m_GuiObjects.push_back(settings);
     m_GuiObjects.push_back(quit);
+
+    SoundManager::GetInstance()->PlayMusic("themeMusic");
 
     s_MapPos = 0;
     std::cout << "Menu Initialized!" << std::endl;
@@ -40,7 +40,7 @@ void Menu::Update()
     m_LevelMap->Update();
 
     for(int i = 0; i < m_GuiObjects.size(); i++)
-        m_GuiObjects[i]->Update(0);
+        m_GuiObjects[i]->Update();
 }
 
 void Menu::Render()
